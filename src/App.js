@@ -1,21 +1,31 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "@material-ui/core/Button";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import About from "./components/pages/about/about";
+import Home from "./components/pages/home/home";
+import NoMatch from "./components/pages/no-match/NoMatch";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button variant="contained" color="primary">
-          Hola Mundo!
-        </Button>
-      </header>
-    </div>
+    <Router>
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="*">
+            <NoMatch />
+          </Route>
+        </Switch>
+        <Footer />
+      </React.Fragment>
+    </Router>
   );
 }
 
