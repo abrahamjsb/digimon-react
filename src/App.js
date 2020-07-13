@@ -1,30 +1,29 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
-import About from "./components/pages/about/about";
+import Album from "./Album";
+import Header from "./components/layout/header/header";
+import Footer from "./components/layout/footer/footer";
+import Layout from "./components/layout/layout";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import NoMatch from "./components/pages/404/no-match";
 import Home from "./components/pages/home/home";
-import NoMatch from "./components/pages/no-match/NoMatch";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 function App() {
   return (
-    <Router>
-      <React.Fragment>
-        <Header />
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
-        <Footer />
-      </React.Fragment>
+    <Router>        
+        <CssBaseline />
+        <Layout header={<Header />} footer={<Footer/>}>
+            <Switch>
+                <Route path="/">
+                    <Home />
+                </Route>
+                <Route path="*">
+                    <NoMatch />
+                </Route>
+            </Switch>
+        </Layout>
     </Router>
   );
 }
