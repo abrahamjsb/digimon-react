@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Album from "./Album";
 import Header from "./components/layout/header/header";
 import Footer from "./components/layout/footer/footer";
 import Layout from "./components/layout/layout";
